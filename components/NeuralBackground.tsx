@@ -1,16 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Particles from "@tsparticles/react";
+import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import type { Engine } from "tsparticles-engine";
 
 export default function NeuralBackground() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
-    loadFull().then(() => {
+    const initParticles = async (engine: Engine) => {
+      await loadFull(engine);
       setInit(true);
-    });
+    };
+
+    initParticles({} as Engine);
   }, []);
 
   if (!init) return null;
