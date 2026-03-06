@@ -21,89 +21,7 @@ export default function AIStrategyTransformation() {
   </div>
 </section>
 
-<section className="py-28 bg-neutral-50 dark:bg-neutral-900">
-  <div className="max-w-6xl mx-auto px-6">
 
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-semibold mb-6">
-        Empowering Your Enterprise Evolution
-      </h2>
-      <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-        Empowering your enterprise evolution through four strategic pillars of growth and innovation.
-      </p>
-    </div>
-
-    <div className="grid md:grid-cols-2 gap-12">
-
-      {/* ACCELERATION */}
-      <div className="p-10 bg-white dark:bg-neutral-950 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800">
-        <h3 className="text-2xl font-semibold mb-4">
-          Accelerate
-        </h3>
-        <p className="text-neutral-500 mb-6">
-          Speed, Scale & Sustainable Growth
-        </p>
-        <ul className="space-y-3 text-neutral-600">
-          <li>• Agentic Process Automation</li>
-          <li>• Spec-Driven Application Development</li>
-          <li>• AI-Powered Operations</li>
-          <li>• Intelligent Managed Services</li>
-        </ul>
-      </div>
-
-      {/* TRANSFORMATION */}
-      <div className="p-10 bg-white dark:bg-neutral-950 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800">
-        <h3 className="text-2xl font-semibold mb-4">
-          Transform
-        </h3>
-        <p className="text-neutral-500 mb-6">
-          Excellence & Cost Optimization
-        </p>
-        <ul className="space-y-3 text-neutral-600">
-          <li>• Next-Gen Customer Experience</li>
-          <li>• Enterprise Digital Transformation</li>
-          <li>• Data & Platform Modernization</li>
-          <li>• Application & Cloud Modernization</li>
-        </ul>
-      </div>
-
-      {/* ASSURANCE */}
-      <div className="p-10 bg-white dark:bg-neutral-950 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800">
-        <h3 className="text-2xl font-semibold mb-4">
-          Assure
-        </h3>
-        <p className="text-neutral-500 mb-6">
-          Risk, Quality & Governance
-        </p>
-        <ul className="space-y-3 text-neutral-600">
-          <li>• Intelligent Quality Engineering</li>
-          <li>• AI Agent Evaluation</li>
-          <li>• Risk & Operational Intelligence</li>
-          <li>• Data Quality & Governance</li>
-          <li>• AI Lifecycle Governance</li>
-          <li>• Vulnerability Management</li>
-        </ul>
-      </div>
-
-      {/* INNOVATION */}
-      <div className="p-10 bg-white dark:bg-neutral-950 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800">
-        <h3 className="text-2xl font-semibold mb-4">
-          Innovate
-        </h3>
-        <p className="text-neutral-500 mb-6">
-          New Value, New Revenue, New Business Models
-        </p>
-        <ul className="space-y-3 text-neutral-600">
-          <li>• Revenue & Growth Analytics</li>
-          <li>• Generative Business Intelligence (GenBI)</li>
-          <li>• Decisioning Intelligence</li>
-          <li>• Intelligent Document Processing</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <section className="py-24 bg-neutral-50 dark:bg-neutral-900">
   <div className="max-w-5xl mx-auto px-6 text-center">
@@ -130,6 +48,141 @@ export default function AIStrategyTransformation() {
   </div>
 </section>
 
+{/* AI Transformation Framework */}
+
+<section className="py-24 px-6 border-t border-neutral-200 dark:border-neutral-800">
+  <div className="max-w-6xl mx-auto">
+
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white">
+        How We Deliver Enterprise AI Transformation
+      </h2>
+      <p className="mt-6 text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+        Our structured delivery framework ensures AI initiatives move beyond experimentation
+        and deliver measurable enterprise value.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-4 gap-8">
+
+      {/* Phase 1 */}
+      <div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow-lg transition">
+        <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
+          01 — Strategy
+        </h3>
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          Identify high-impact AI opportunities aligned with enterprise strategy, 
+          governance frameworks, and operational priorities.
+        </p>
+      </div>
+
+      {/* Phase 2 */}
+      <div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow-lg transition">
+        <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
+          02 — Architecture
+        </h3>
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          Design secure AI infrastructure including data pipelines, model orchestration,
+          compliance controls, and enterprise integrations.
+        </p>
+      </div>
+
+      {/* Phase 3 */}
+      <div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow-lg transition">
+        <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
+          03 — Implementation
+        </h3>
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          Deploy AI solutions across business functions with production-grade
+          reliability, security, and performance monitoring.
+        </p>
+      </div>
+
+      {/* Phase 4 */}
+      <div className="p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow-lg transition">
+        <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
+          04 — Scale
+        </h3>
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          Expand AI capabilities across the enterprise with governance,
+          workforce enablement, and continuous optimization.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{/* ENTERPRISE AI LIFECYCLE */}
+
+<section className="py-28 bg-white dark:bg-neutral-950">
+
+  <div className="max-w-7xl mx-auto px-6">
+
+    <div className="text-center mb-20">
+
+      <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+        The Enterprise AI Lifecycle
+      </h2>
+
+      <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+        Enterprise AI success requires more than isolated pilots. 
+        Organizations must align strategy, architecture, governance, 
+        and operational execution to transform AI into a scalable 
+        enterprise capability.
+      </p>
+
+    </div>
+
+    <div className="grid md:grid-cols-5 gap-8">
+
+      <div className="p-8 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-neutral-50 dark:bg-neutral-900">
+        <h3 className="font-semibold text-lg mb-3">Strategy</h3>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Define enterprise AI vision, identify high-impact use cases, 
+          and align initiatives with strategic business outcomes.
+        </p>
+      </div>
+
+      <div className="p-8 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-neutral-50 dark:bg-neutral-900">
+        <h3 className="font-semibold text-lg mb-3">Architecture</h3>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Design scalable AI infrastructure including data pipelines, 
+          model orchestration, and enterprise platform integrations.
+        </p>
+      </div>
+
+      <div className="p-8 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-neutral-50 dark:bg-neutral-900">
+        <h3 className="font-semibold text-lg mb-3">Build</h3>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Develop AI copilots, automation systems, and predictive 
+          intelligence platforms integrated with enterprise workflows.
+        </p>
+      </div>
+
+      <div className="p-8 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-neutral-50 dark:bg-neutral-900">
+        <h3 className="font-semibold text-lg mb-3">Govern</h3>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Implement responsible AI frameworks, model monitoring, 
+          and enterprise risk management for secure AI adoption.
+        </p>
+      </div>
+
+      <div className="p-8 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-neutral-50 dark:bg-neutral-900">
+        <h3 className="font-semibold text-lg mb-3">Scale</h3>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Expand AI across business functions while continuously 
+          optimizing performance and operational impact.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
       <section className="py-28 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
   <div>
     <h3 className="text-2xl font-semibold mb-4">
@@ -154,18 +207,16 @@ export default function AIStrategyTransformation() {
 </p>
   </div>
 
-  <div>
-    <h3 className="text-2xl font-semibold mb-4">
-      Intelligent Automation & Decision Systems
-    </h3>
-    <p className="text-neutral-600 leading-relaxed">
-      <p className="text-neutral-600 leading-relaxed">
-  Implement predictive analytics, AI-driven workflow automation, 
-  and decision intelligence platforms that reduce operational friction 
-  and accelerate enterprise responsiveness.
-</p>
-    </p>
-  </div>
+ <div>
+  <h3 className="text-2xl font-semibold mb-4">
+    Intelligent Automation & Decision Systems
+  </h3>
+  <p className="text-neutral-600 leading-relaxed">
+    Implement predictive analytics, AI-driven workflow automation, 
+    and decision intelligence platforms that reduce operational friction 
+    and accelerate enterprise responsiveness.
+  </p>
+</div>
 
   <div>
     <h3 className="text-2xl font-semibold mb-4">
