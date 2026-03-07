@@ -266,9 +266,6 @@ export default function HomePage() {
           </button>
         </div>
       </section>
-
-      {/* ================= CHAT WIDGET ================= */}
-      <ChatWidget />
     </>
   );
 }

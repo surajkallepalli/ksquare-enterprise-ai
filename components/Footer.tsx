@@ -1,30 +1,16 @@
+// components/Footer.tsx
+"use client";
+
 export default function Footer() {
   return (
-    <footer className="bg-neutral-950 text-white py-16 mt-24">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-        <div>
-          <h3 className="text-lg font-semibold mb-4">KSquare Group</h3>
-          <p className="text-neutral-400 text-sm">
-            Engineering the AI-first enterprise.
-          </p>
-        </div>
-
-        <div>
-          <h4 className="font-semibold mb-4">Capabilities</h4>
-          <ul className="space-y-2 text-sm text-neutral-400">
-            <li>Enterprise Strategy</li>
-            <li>Cloud Transformation</li>
-            <li>Data Engineering</li>
-            <li>AI Systems</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-semibold mb-4">Contact</h4>
-          <p className="text-neutral-400 text-sm">
-            enterprise@ksquaregroup.com
-          </p>
-        </div>
+    <footer className="bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 py-12 mt-24">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <p className="text-sm">
+          &copy; {new Date().getFullYear()} The KSquare Group. All rights reserved.
+        </p>
+        <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+          Enterprise AI Solutions, Cloud Services, Systems Engineering & Consulting
+        </p>
       </div>
     </footer>
   );

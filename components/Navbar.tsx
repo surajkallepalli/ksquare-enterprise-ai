@@ -12,7 +12,7 @@ export default function Navbar() {
 
           <Link href="/" className="flex items-center">
             <img
-              src="/assets/logos/ksquare-logo.png"
+              src="/assets/logos/ksquare.png"
               alt="The Ksquare Group"
               className="h-10 w-auto"
             />

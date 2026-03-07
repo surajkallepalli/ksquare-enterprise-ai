@@ -2,6 +2,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KSquareAssistant from "@/components/KSquareAssistant"; // <- import the new assistant
 
 export const metadata = {
   title: "The KSquare Group | AI-Integrated Enterprise Systems",
@@ -21,6 +22,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <KSquareAssistant /> {/* Floating assistant widget */}
         </ThemeProvider>
       </body>
     </html>
