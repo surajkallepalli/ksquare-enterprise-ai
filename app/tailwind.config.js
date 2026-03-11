@@ -1,53 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}", 
+    "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        // Add any custom colors if needed
+        "ks-blue": "#3B82F6",
+        "ks-indigo": "#6366F1",
+        "ks-neutral-dark": "#111827",
+        "ks-neutral-light": "#F3F4F6",
+      },
+      keyframes: {
+        "slow-rotate": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "slow-rotate-reverse": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(-360deg)" },
+        },
+      },
+      animation: {
+        "slow-rotate": "slow-rotate 60s linear infinite",
+        "slow-rotate-reverse": "slow-rotate-reverse 60s linear infinite",
+      },
+    },
   },
   plugins: [],
-};
-
-module.exports = {
-  theme: {
-    extend: {
-      keyframes: {
-        'bounce-slow': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-12px)' },
-        },
-      },
-      animation: {
-        'bounce-slow': 'bounce-slow 6s ease-in-out infinite',
-      },
-    },
-  },
-};
-
-module.exports = {
-  theme: {
-    extend: {
-      keyframes: {
-        'bounce-slow': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-12px)' },
-        },
-        'slide-left': {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        'slide-right': {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(50%)' },
-        },
-      },
-      animation: {
-        'bounce-slow': 'bounce-slow 6s ease-in-out infinite',
-        'slide-left': 'slide-left 12s linear infinite',
-        'slide-right': 'slide-right 15s linear infinite',
-      },
-    },
-  },
 };
