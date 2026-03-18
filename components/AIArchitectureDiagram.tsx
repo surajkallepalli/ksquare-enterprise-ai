@@ -1,98 +1,125 @@
 "use client";
 
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+const nodes = [
+  {
+    title: "Enterprise Systems",
+    description: "CRM, ERP, operational systems and external data sources"
+  },
+  {
+    title: "Unified Data Layer",
+    description: "Secure pipelines, governance, and enterprise data platform"
+  },
+  {
+    title: "AI Intelligence",
+    description: "Machine learning models, LLMs, and AI agents"
+  },
+  {
+    title: "Business Applications",
+    description: "Automation, forecasting, decision intelligence"
+  }
+];
+
 export default function AIArchitectureDiagram() {
 
+  const [active, setActive] = useState(0);
+
   return (
+    <section className="relative max-w-6xl mx-auto px-6 py-32">
 
-<div className="relative w-full max-w-6xl mx-auto py-20">
+      <h2 className="text-3xl font-semibold text-center mb-20">
+        Enterprise AI Architecture
+      </h2>
 
-  {/* GRID */}
-  <div className="grid md:grid-cols-4 gap-10 text-center">
+      <div className="relative grid md:grid-cols-4 gap-10">
 
-    {/* Layer 1 */}
-    <div className="space-y-4">
-      <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-900">
-        <h3 className="font-semibold">Enterprise Systems</h3>
-        <p className="text-sm text-neutral-400 mt-2">
-          Salesforce • ERP • CRM • Data Platforms
-        </p>
+        {nodes.map((node, i) => (
+
+          <motion.div
+            key={node.title}
+            onMouseEnter={() => setActive(i)}
+            whileHover={{ y: -6 }}
+            className={`relative p-6 rounded-xl border cursor-pointer transition
+            ${
+              active === i
+                ? "bg-blue-600/20 border-blue-400 shadow-[0_20px_60px_rgba(59,130,246,0.5)]"
+                : "bg-neutral-900 border-neutral-800"
+            }`}
+          >
+
+            <h3 className="font-semibold mb-3">
+              {node.title}
+            </h3>
+
+            <p className="text-sm text-neutral-400">
+              {node.description}
+            </p>
+
+          </motion.div>
+
+        ))}
+
+        {/* connection lines */}
+
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 1000 300"
+        >
+
+          {[0,1,2].map((i) => (
+
+            <motion.line
+              key={i}
+              x1={200 + i * 200}
+              y1="150"
+              x2={400 + i * 200}
+              y2="150"
+              stroke="#3b82f6"
+              strokeWidth="2"
+              strokeDasharray="8 8"
+              animate={{
+                strokeDashoffset: [0, -20]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+
+          ))}
+
+        </svg>
+
+        {/* data particles */}
+
+        {[0,1,2].map((i) => (
+
+          <motion.div
+            key={"particle" + i}
+            className="absolute w-2 h-2 bg-blue-400 rounded-full"
+            style={{
+              left: `${25 + i * 20}%`,
+              top: "50%"
+            }}
+            animate={{
+              x: [0, 200],
+              opacity: [0,1,0]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: i * 0.6,
+              ease: "linear"
+            }}
+          />
+
+        ))}
+
       </div>
-    </div>
 
-    {/* Layer 2 */}
-    <div className="space-y-4">
-      <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-900">
-        <h3 className="font-semibold">Unified Data Layer</h3>
-        <p className="text-sm text-neutral-400 mt-2">
-          Data pipelines, governance, secure integration
-        </p>
-      </div>
-    </div>
-
-    {/* Layer 3 */}
-    <div className="space-y-4">
-      <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-900">
-        <h3 className="font-semibold">AI Intelligence</h3>
-        <p className="text-sm text-neutral-400 mt-2">
-          LLMs • Predictive Models • AI Agents
-        </p>
-      </div>
-    </div>
-
-    {/* Layer 4 */}
-    <div className="space-y-4">
-      <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-900">
-        <h3 className="font-semibold">Business Outcomes</h3>
-        <p className="text-sm text-neutral-400 mt-2">
-          Forecasting • Automation • Decisions
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-  {/* Animated Connection Lines */}
-  <svg
-    className="absolute top-0 left-0 w-full h-full pointer-events-none"
-    viewBox="0 0 1000 300"
-  >
-
-    <line
-      x1="200"
-      y1="150"
-      x2="400"
-      y2="150"
-      stroke="#3b82f6"
-      strokeWidth="2"
-      strokeDasharray="8 8"
-      className="animate-flow"
-    />
-
-    <line
-      x1="400"
-      y1="150"
-      x2="600"
-      y2="150"
-      stroke="#3b82f6"
-      strokeWidth="2"
-      strokeDasharray="8 8"
-      className="animate-flow"
-    />
-
-    <line
-      x1="600"
-      y1="150"
-      x2="800"
-      y2="150"
-      stroke="#3b82f6"
-      strokeWidth="2"
-      strokeDasharray="8 8"
-      className="animate-flow"
-    />
-
-  </svg>
-
-</div>
-
+    </section>
   );
 }

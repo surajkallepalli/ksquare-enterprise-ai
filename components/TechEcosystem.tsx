@@ -2,85 +2,64 @@
 
 import { motion } from "framer-motion";
 
-const logos = [
-  { src: "/assets/logos/aws.png", alt: "AWS" },
-  { src: "/assets/logos/nvidia.png", alt: "NVIDIA" },
-  { src: "/assets/logos/salesforce.png", alt: "Salesforce" },
-  { src: "/assets/logos/microsoft.png", alt: "Microsoft" },
+const tech = [
+  { name: "AWS", logo: "/assets/logos/aws.png" },
+  { name: "NVIDIA", logo: "/assets/logos/nvidia.png" },
+  { name: "Microsoft", logo: "/assets/logos/microsoft.png" },
+  { name: "Salesforce", logo: "/assets/logos/salesforce.png" },
 ];
 
-const floatingDots = [
-  { size: 20, top: "10%", left: "15%", color: "bg-blue-500/40" },
-  { size: 30, top: "30%", left: "70%", color: "bg-indigo-500/30" },
-  { size: 15, top: "60%", left: "25%", color: "bg-purple-500/30" },
-  { size: 25, top: "75%", left: "60%", color: "bg-blue-400/30" },
-  { size: 18, top: "50%", left: "50%", color: "bg-indigo-400/25" },
-];
-
-export default function TechEcosystem() {
+export default function TechnologyEcosystem() {
   return (
-    <section className="relative py-32 px-6 text-center overflow-hidden bg-black">
-      {/* Floating background dots */}
-      {floatingDots.map((dot, idx) => (
-        <motion.div
-          key={idx}
-          className={`absolute rounded-full ${dot.color}`}
-          style={{
-            width: dot.size,
-            height: dot.size,
-            top: dot.top,
-            left: dot.left,
-            filter: "blur(20px)",
-          }}
-          animate={{
-            y: ["0%", "10%", "0%"],
-            x: ["0%", "10%", "0%"],
-            opacity: [0.6, 0.9, 0.6],
-          }}
-          transition={{
-            duration: 8 + idx, // each dot moves at a slightly different speed
-            repeat: Infinity,
-            repeatType: "mirror",
-          }}
-        />
-      ))}
+    <section className="relative max-w-7xl mx-auto px-6 py-32 overflow-hidden text-center">
 
-      {/* Gradient glow overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-purple-600/5 blur-3xl z-0"></div>
+      {/* background glow */}
 
-      {/* Section Content */}
-      <div className="relative z-10 max-w-6xl mx-auto space-y-12">
-        <p className="text-sm uppercase tracking-widest text-neutral-500">
-          Technology Ecosystem
-        </p>
-
-        <h2 className="text-3xl md:text-4xl font-semibold text-white">
-          Built on the world's leading platforms
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-20 items-center mt-12">
-{logos.map((logo, index) => (
-  <motion.div
-    key={index}
-    whileHover={{ scale: 1.08, y: -6 }}
-    transition={{ type: "spring", stiffness: 120 }}
-    className="group flex items-center justify-center"
-  >
-    <div className="relative flex items-center justify-center px-8 py-6 rounded-xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm transition duration-500 group-hover:border-blue-400/40 group-hover:bg-white/[0.04]">
-
-      <img
-        src={logo.src}
-        alt={logo.alt}
-        className="h-8 opacity-70 grayscale transition duration-500 group-hover:opacity-100 group-hover:grayscale-0"
-      />
-
-      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition duration-500 bg-blue-500/5 blur-xl"></div>
-
-    </div>
-  </motion.div>
-))}
-        </div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-600/10 blur-[180px]" />
+        <div className="absolute bottom-[-200px] right-[10%] w-[700px] h-[700px] bg-indigo-600/10 blur-[180px]" />
       </div>
+
+      <p className="text-sm uppercase tracking-widest text-neutral-500 mb-6">
+        Technology Ecosystem
+      </p>
+
+      <h2 className="text-3xl md:text-4xl font-semibold mb-20">
+        Built on the world's leading platforms
+      </h2>
+
+
+      {/* floating ecosystem */}
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-12 relative z-10">
+
+        {tech.map((item, i) => (
+
+          <motion.div
+            key={item.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.15, duration: 0.6 }}
+            whileHover={{ y: -8, scale: 1.05 }}
+            className="group relative rounded-2xl border border-white/10 bg-neutral-900 p-8 flex items-center justify-center shadow-[0_20px_60px_rgba(0,0,0,0.8)] cursor-pointer"
+          >
+
+            {/* glow */}
+
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/20 blur-xl rounded-2xl"></div>
+
+            <img
+              src={item.logo}
+              alt={item.name}
+              className="relative z-10 h-10 object-contain opacity-70 group-hover:opacity-100 transition"
+            />
+
+          </motion.div>
+
+        ))}
+
+      </div>
+
     </section>
   );
 }

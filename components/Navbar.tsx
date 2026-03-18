@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import NavPreviewVisual from "@/components/NavPreviewVisual";
 
 const navbarItems = [
   {
@@ -111,113 +113,119 @@ const navbarItems = [
         description: "AI and data studies",
         href: "/research",
       },
+      {
+        title: "Case Studies",
+        description: "Enterprise AI transformation stories",
+        href: "/case-studies",
+      },
     ],
   },
 ];
 
-export default function Navbar() {
+const capabilityVisuals = {
+  "AI Infrastructure": "/assets/nav/ai-infrastructure.png",
+  "Data Platforms": "/assets/nav/data-platforms.png",
+  "Enterprise AI": "/assets/nav/enterprise-ai.png",
+  "Intelligent Automation": "/assets/nav/automation.png",
+};
 
+export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [hoveringMenu, setHoveringMenu] = useState(false);
   const [closeTimer, setCloseTimer] = useState<NodeJS.Timeout | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
-      className="fixed top-0 w-full bg-black text-white z-50"
-      onMouseLeave={() => {
-        const timer = setTimeout(() => {
-          if (!hoveringMenu) setOpenMenu(null);
-        }, 100);
-        setCloseTimer(timer);
-      }}
-    >
-
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
-
-        {/* Logo */}
-<a
-  href="/"
-  className="flex items-center gap-3 text-2xl font-semibold hover:opacity-90 transition"
->
-
-  {/* Logo Image */}
-  <img
-    src="/assets/logos/ksquare-logo.png"
-    className="h-8 w-auto"
-  />
-
-</a>
-
-        {/* Main Menu */}
-        <ul
-  className="flex gap-8 items-center"
-  onMouseLeave={() => {
-    const timer = setTimeout(() => {
-      if (!hoveringMenu) setOpenMenu(null);
-    }, 120);
-    setCloseTimer(timer);
-  }}
->
-
-          {navbarItems.map((item) => (
-
-<li
-  key={item.label}
-  onMouseEnter={() => {
-
-    if (closeTimer) clearTimeout(closeTimer);
-
-    setHoveringMenu(false);
-
-    setOpenMenu(item.label);
-
-    setActiveSubmenu(
-      item.content?.[0]?.title ||
-      item.sections?.[0]?.items?.[0]?.title ||
-      null
-    );
-  }}
-  className="relative cursor-pointer py-2 group"
->
-  <motion.span
-    className="relative text-white/90 group-hover:text-white transition"
-    whileHover={{ y: -2 }}
-    transition={{ type: "spring", stiffness: 300 }}
-  >
-    {item.label}
-
-    {/* Blue underline */}
-    <span
-      className={`absolute left-0 -bottom-1 h-[2px] bg-blue-500 transition-all duration-300 ${
-        openMenu === item.label ? "w-full" : "w-0 group-hover:w-full"
+      className={`fixed top-0 w-full z-50 text-white transition-all duration-500 ${
+        scrolled
+          ? "bg-black/70 backdrop-blur-xl border-b border-white/10"
+          : "bg-transparent"
       }`}
-    />
-  </motion.span>
-</li>
+    >
+      <div
+        className={`max-w-7xl mx-auto px-6 flex items-center justify-between transition-all duration-500 ${
+          scrolled ? "h-16" : "h-20"
+        }`}
+      >
+        {/* Logo */}
 
+        <Link
+          href="/"
+          className="flex items-center gap-3 text-2xl font-semibold hover:opacity-90 transition"
+        >
+          <img src="/assets/logos/ksquare-logo.png" className="h-8 w-auto" />
+        </Link>
+
+        {/* Menu */}
+
+        <ul
+          className="flex gap-8 items-center"
+          onMouseLeave={() => {
+            const timer = setTimeout(() => {
+              if (!hoveringMenu) setOpenMenu(null);
+            }, 120);
+            setCloseTimer(timer);
+          }}
+        >
+          {navbarItems.map((item) => (
+            <li
+              key={item.label}
+              onMouseEnter={() => {
+                if (closeTimer) clearTimeout(closeTimer);
+
+                setHoveringMenu(false);
+                setOpenMenu(item.label);
+
+                setActiveSubmenu(
+                  item.content?.[0]?.title ||
+                    item.sections?.[0]?.items?.[0]?.title ||
+                    null
+                );
+              }}
+              className="relative cursor-pointer py-2 group"
+            >
+              <motion.span
+                className="relative text-white/90 group-hover:text-white transition"
+                whileHover={{ y: -2 }}
+              >
+                {item.label}
+
+                <span
+                  className={`absolute left-0 -bottom-1 h-[2px] bg-blue-500 transition-all duration-300 ${
+                    openMenu === item.label
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </motion.span>
+            </li>
           ))}
 
-          {/* CTA */}
           <li>
             <button className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition">
               Get Started
             </button>
           </li>
-
         </ul>
 
-        {/* Chat widget placeholder */}
         <div id="chat-widget"></div>
-
       </div>
 
       {/* Mega Menu */}
 
       <AnimatePresence>
-
         {openMenu && (
-
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -235,213 +243,211 @@ export default function Navbar() {
             }}
           >
 
-            {/* LEFT PANEL */}
 
-            <div className="p-6 border-r border-white/10 flex flex-col gap-6 overflow-y-auto">
+{/* LEFT PANEL */}
 
-              {/* Sectioned Menu (Capabilities) */}
+<div className="p-6 border-r border-white/10 flex flex-col gap-8 overflow-y-auto">
 
-              {navbarItems
-                .find((item) => item.label === openMenu)
-                ?.sections?.map((section) => (
+{/* SPECIAL LAYOUT FOR CAPABILITIES */}
 
-                <div key={section.heading}>
+{openMenu === "Capabilities" ? (
 
-                  <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3">
-                    {section.heading}
-                  </p>
+<>
 
-                  {section.items.map((sub) => (
 
-                    <a
-                      key={sub.title}
-                      href={sub.href}
-                      onMouseEnter={() => setActiveSubmenu(sub.title)}
-                      className="relative px-4 py-3 rounded-lg flex items-center"
-                    >
+{/* SOLUTIONS */}
 
-                      {activeSubmenu === sub.title && (
-                        <motion.div
-                          layoutId="submenu-highlight"
-                          className="absolute inset-0 rounded-lg bg-white/10"
-                          transition={{
-                            type: "spring",
-                            stiffness: 380,
-                            damping: 30,
-                          }}
-                        />
-                      )}
+<div>
 
-                      <span className="relative z-10 text-sm font-medium ml-3">
-                        {sub.title}
-                      </span>
+<p className="text-xs uppercase tracking-widest text-neutral-500 mb-3">
+Solutions
+</p>
 
-                    </a>
+<div className="flex flex-col gap-2">
 
-                  ))}
+{navbarItems
+  .find((item) => item.label === "Capabilities")
+  ?.sections?.[0]?.items.map((sub) => (
 
-                </div>
+<Link
+  key={sub.title}
+  href={sub.href}
+  onMouseEnter={() => setActiveSubmenu(sub.title)}
+  className={`px-4 py-3 rounded-lg text-sm transition flex flex-col
+  ${
+    activeSubmenu === sub.title
+      ? "bg-white/10"
+      : "hover:bg-white/5"
+  }`}
+>
 
-              ))}
+<span className="font-medium">
+{sub.title}
+</span>
 
-              {/* Simple Menu */}
+<span className="text-xs text-neutral-400">
+{sub.description}
+</span>
 
-              {navbarItems
-                .find((item) => item.label === openMenu)
-                ?.content?.map((sub) => (
+</Link>
 
-                <a
-                  key={sub.title}
-                  href={sub.href}
-                  onMouseEnter={() => setActiveSubmenu(sub.title)}
-                  className="relative px-4 py-3 rounded-lg flex items-center"
-                >
+))}
 
-                  {activeSubmenu === sub.title && (
-                    <motion.div
-                      layoutId="submenu-highlight"
-                      className="absolute inset-0 rounded-lg bg-white/10"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                    />
-                  )}
+</div>
 
-                  <span className="relative z-10 text-sm font-medium ml-3">
-                    {sub.title}
-                  </span>
+</div>
 
-                </a>
 
-              ))}
+{/* INDUSTRIES */}
 
-            </div>
+<div>
 
-            {/* Animated Divider */}
+<p className="text-xs uppercase tracking-widest text-neutral-500 mb-3">
+Industries
+</p>
 
-            <div className="relative w-px bg-white/10">
+<div className="flex flex-col gap-2">
 
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500 opacity-40"
-                animate={{ opacity: [0.2, 0.6, 0.2] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+{navbarItems
+  .find((item) => item.label === "Capabilities")
+  ?.sections?.[1]?.items.map((sub) => (
 
-            </div>
+<Link
+  key={sub.title}
+  href={sub.href}
+  onMouseEnter={() => setActiveSubmenu(sub.title)}
+  className={`px-4 py-3 rounded-lg text-sm transition
+  ${
+    activeSubmenu === sub.title
+      ? "bg-white/10"
+      : "hover:bg-white/5"
+  }`}
+>
+
+{sub.title}
+
+</Link>
+
+))}
+
+</div>
+
+</div>
+
+</>
+
+) : (
+
+<>
+{/* DEFAULT MENU FOR OTHER ITEMS */}
+
+{navbarItems
+  .find((item) => item.label === openMenu)
+  ?.content?.map((sub) => (
+
+<Link
+  key={sub.title}
+  href={sub.href}
+  onMouseEnter={() => setActiveSubmenu(sub.title)}
+  className={`px-4 py-3 rounded-lg text-sm transition
+  ${
+    activeSubmenu === sub.title
+      ? "bg-white/10"
+      : "hover:bg-white/5"
+  }`}
+>
+
+{sub.title}
+
+</Link>
+
+))}
+
+</>
+
+)}
+
+</div>
+
+            {/* Divider */}
+
+            <div className="relative w-px bg-white/10" />
 
             {/* RIGHT PANEL */}
 
-<div className="p-12 flex items-center relative overflow-hidden">
-{/* AI background glow */}
-<motion.div
-  className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-purple-600/10"
-  animate={{
-    opacity: [0.4, 0.7, 0.4]
-  }}
-  transition={{
-    duration: 6,
-    repeat: Infinity,
-    ease: "easeInOut"
-  }}
-/>
+            <div className="p-12 flex items-center relative overflow-hidden">
+              {/* background glow */}
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-purple-600/10" />
 
-{/* floating particles */}
-<div className="absolute inset-0 pointer-events-none">
-  {[...Array(8)].map((_, i) => (
-    <motion.div
-      key={i}
-      className="absolute w-1 h-1 bg-blue-400 rounded-full"
-      style={{
-        top: `${20 + i * 10}%`,
-        left: `${10 + i * 10}%`
-      }}
-      animate={{
-        y: [0, -20, 0],
-        opacity: [0.2, 0.8, 0.2]
-      }}
-      transition={{
-        duration: 4 + i,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    />
-  ))}
-</div>
-  <AnimatePresence mode="wait">
+              {/* floating particles */}
+              <div className="absolute inset-0 pointer-events-none">
+                {[...Array(8)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-blue-400 rounded-full"
+                    style={{
+                      top: `${20 + i * 10}%`,
+                      left: `${10 + i * 10}%`,
+                    }}
+                    animate={{ y: [0, -20, 0], opacity: [0.2, 0.8, 0.2] }}
+                    transition={{
+                      duration: 4 + i,
+                      repeat: Infinity,
+                    }}
+                  />
+                ))}
+              </div>
 
-    {[
-      ...(navbarItems
-        .find((item) => item.label === openMenu)
-        ?.sections?.flatMap((section) => section.items) || []),
-      ...(navbarItems
-        .find((item) => item.label === openMenu)
-        ?.content || [])
-    ]
-      .filter((sub) => sub.title === activeSubmenu)
-      .map((sub) => (
+              <AnimatePresence mode="wait">
+                {[
+                  ...(navbarItems
+                    .find((item) => item.label === openMenu)
+                    ?.sections?.flatMap((section) => section.items) || []),
+                  ...(navbarItems
+                    .find((item) => item.label === openMenu)
+                    ?.content || []),
+                ]
+                  .filter((sub) => sub.title === activeSubmenu)
+                  .map((sub) => (
+                    <motion.div
+                      key={sub.title}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="relative z-10 grid grid-cols-[180px_1fr] gap-10 items-center w-full"
+                    >
+                      {/* Visual */}
 
-        <motion.div
-          key={sub.title}
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.25 }}
-          className="grid grid-cols-[160px_1fr] gap-10 items-center w-full"
-        >
+                      <div className="relative w-[180px] h-[180px] rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 flex items-center justify-center">
+                        <NavPreviewVisual type={sub.title} />
+                      </div>
 
-          {/* Visual Tile */}
+                      {/* Content */}
 
-          <div className="relative w-[160px] h-[160px] rounded-2xl bg-gradient-to-br from-blue-600/30 via-indigo-600/20 to-purple-600/20 border border-white/10 flex items-center justify-center">
+                      <div className="space-y-5">
+                        <h3 className="text-3xl font-semibold tracking-tight">
+                          {sub.title}
+                        </h3>
 
-            <div className="absolute inset-0 blur-2xl bg-blue-500/20 rounded-2xl" />
+                        <p className="text-neutral-300 text-lg max-w-lg leading-relaxed">
+                          {sub.description}
+                        </p>
 
-            <div className="relative text-blue-400 text-4xl">
-              ✦
+                        <Link
+                          href={sub.href}
+                          onClick={() => setOpenMenu(null)}
+                          className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition cursor-pointer"
+                        >
+                          Explore {sub.title} →
+                        </Link>
+                      </div>
+                    </motion.div>
+                  ))}
+              </AnimatePresence>
             </div>
-
-          </div>
-
-          {/* Content */}
-
-          <div className="space-y-5">
-
-            <h3 className="text-3xl font-semibold tracking-tight">
-              {sub.title}
-            </h3>
-
-            <p className="text-neutral-300 text-lg max-w-lg leading-relaxed">
-              {sub.description}
-            </p>
-
-            <a
-              href={sub.href}
-              className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition"
-            >
-              Explore {sub.title} →
-            </a>
-
-          </div>
-
-        </motion.div>
-
-      ))}
-
-  </AnimatePresence>
-
-</div>
-
           </motion.div>
-
         )}
-
       </AnimatePresence>
-
     </nav>
   );
 }

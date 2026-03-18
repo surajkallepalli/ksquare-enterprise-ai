@@ -7,11 +7,16 @@ import ThoughtLeadershipSection from "@/components/ThoughtLeadershipSection";
 import AIParticlesSection from "@/components/AIParticlesSection";
 import AIParticles from "@/components/AIParticles";
 import CTAParticles from "@/components/CTAParticles";
-import TechParticles from "./TechParticles";
+import TechEcosystem from "@/components/TechEcosystem";
 import AmbientAIGrid from "@/components/AmbientAIGrid";
 import AICapabilities from "@/components/AICapabilities";
 import ScrollReveal from "@/components/ScrollReveal";
 import BackgroundGlow from "@/components/BackgroundGlow";
+import HeroNetwork from "@/components/HeroNetwork";
+import GlobalAIAmbience from "@/components/GlobalAIAmbience";
+import SmoothScroll from "@/components/SmoothScroll";
+import CursorGlow from "@/components/CursorGlow";
+import AIButton from "@/components/AIButton";
 
 function SlideFadeSection({ children, direction = "left" }: any) {
   const ref = useRef(null);
@@ -37,8 +42,10 @@ function SlideFadeSection({ children, direction = "left" }: any) {
 
 export default function Home() {
   return (
-    <main className="relative bg-black text-white overflow-hidden perspective-[1200px]">
-
+    <main className="relative bg-black text-white overflow-hidden perspective-[1200px] will-change-transform">
+      <SmoothScroll />
+      <CursorGlow />
+      <GlobalAIAmbience />
       <BackgroundGlow />
       <AmbientAIGrid />
       {/* Global AI Gradient Background */}
@@ -59,73 +66,80 @@ export default function Home() {
 {/* ================= HERO ================= */}
 
 <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden text-center px-6">
+
   {/* Background Video */}
   <video
     autoPlay
     loop
     muted
     playsInline
-    className="absolute top-0 left-0 w-full h-full object-cover z-0"
+    className="absolute inset-0 w-full h-full object-cover z-0"
   >
     <source src="/videos/hero-bg.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
   </video>
 
-  {/* Neural Network Animation Layer */}
+  {/* Ambient AI Glow */}
   <div className="absolute inset-0 z-10 pointer-events-none">
+    <HeroNetwork />
+  </div>
+
+  {/* Neural Network Animation */}
+  <div className="absolute inset-0 z-20 pointer-events-none">
     <NeuralNetwork />
   </div>
 
-  {/* Optional dark overlay for readability */}
-  <div className="absolute top-0 left-0 w-full h-full bg-black/20 z-20"></div>
+  {/* Readability Overlay */}
+  <div className="absolute inset-0 bg-black/30 z-30"></div>
 
   {/* Hero Content */}
-<motion.div
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
-  className="relative z-30 max-w-4xl space-y-8"
->
-
-  <motion.h1
+  <motion.div
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 1 }}
-    className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight text-white"
-    style={{ textShadow: "0 10px 40px rgba(59,130,246,0.35)" }}
+    className="relative z-40 max-w-4xl space-y-8"
   >
-    From insight to execution,{" "}
-    <span className="text-blue-400">
-      we make transformation happen
-    </span>
-  </motion.h1>
 
-  <motion.p
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.4, duration: 1 }}
-    className="text-lg max-w-2xl mx-auto text-neutral-200"
-  >
-    We architect, govern, and scale AI systems that drive measurable
-    enterprise outcomes across infrastructure, data, and intelligence.
-  </motion.p>
+    <motion.h1
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight text-white"
+      style={{ textShadow: "0 10px 40px rgba(59,130,246,0.35)" }}
+    >
+      From insight to execution{" "}
+      <span className="text-blue-400">
+        we make transformation happen
+      </span>
+    </motion.h1>
 
-</motion.div>
+    <motion.p
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4, duration: 1 }}
+      className="text-lg max-w-2xl mx-auto text-neutral-200"
+    >
+      We architect, govern, and scale AI systems that drive measurable
+      enterprise outcomes across infrastructure, data, and intelligence.
+    </motion.p>
 
-<motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ delay: 1.4, duration: 1 }}
-  className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30"
->
-  <motion.div
-    animate={{ y: [0, 12, 0] }}
-    transition={{ duration: 2, repeat: Infinity }}
-    className="flex flex-col items-center text-neutral-300"
-  >
-    <div className="w-[2px] h-12 bg-gradient-to-b from-white/80 to-transparent"></div>
   </motion.div>
-</motion.div>
+
+  {/* Scroll Indicator */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 1.4, duration: 1 }}
+    className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40"
+  >
+    <motion.div
+      animate={{ y: [0, 12, 0] }}
+      transition={{ duration: 2, repeat: Infinity }}
+      className="flex flex-col items-center text-neutral-300"
+    >
+      <div className="w-[2px] h-12 bg-gradient-to-b from-white/80 to-transparent"></div>
+    </motion.div>
+  </motion.div>
+
 </section>
 
 
@@ -177,26 +191,15 @@ export default function Home() {
   </ScrollReveal>
 </SlideFadeSection>
 
+{/* ================= TECHNOLOGY ECOSYSTEM ================= */}
 
-      {/* ================= TECHNOLOGY PARTNERS ================= */}
-      <SlideFadeSection direction="right">
-        <ScrollReveal>
-        <section className="max-w-6xl mx-auto px-6 py-32 text-center">
-          <p className="text-sm uppercase tracking-widest text-neutral-500 mb-6">
-            Technology Ecosystem
-          </p>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-20">
-            Built on the world's leading platforms
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-16 items-center opacity-70">
-            <img src="/assets/logos/aws.png" className="mx-auto h-10 grayscale hover:grayscale-0 transition duration-500" />
-            <img src="/assets/logos/nvidia.png" className="mx-auto h-10 grayscale hover:grayscale-0 transition duration-500" />
-            <img src="/assets/logos/salesforce.png" className="mx-auto h-10 grayscale hover:grayscale-0 transition duration-500" />
-            <img src="/assets/logos/microsoft.png" className="mx-auto h-10 grayscale hover:grayscale-0 transition duration-500" />
-          </div>
-        </section>
-        </ScrollReveal>
-      </SlideFadeSection>
+<SlideFadeSection direction="right">
+  <ScrollReveal>
+    <TechEcosystem />
+  </ScrollReveal>
+</SlideFadeSection>
+
+      {/* ================= AI CAPABILITIES ================= */}
       <ScrollReveal>
       <AICapabilities />
       </ScrollReveal>
@@ -234,12 +237,14 @@ export default function Home() {
     rotateX: 2,
   }}
   transition={{ type: "spring", stiffness: 120 }}
-    className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-800/80 via-indigo-800/60 to-purple-800/60 shadow-[0_60px_160px_rgba(0,0,0,0.9)] cursor-pointer"
+    className="group relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-800/80 via-indigo-800/60 to-purple-800/60 shadow-[0_60px_160px_rgba(0,0,0,0.9)] cursor-pointer transition-all duration-500"
   >
 
     <AIParticles className="absolute inset-0 z-0" />
 
     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/10 blur-3xl"></div>
+
+    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/20 blur-2xl"></div>
 
     <div className="relative z-10 p-12 md:p-20 flex flex-col md:flex-row items-center gap-12">
 
@@ -257,12 +262,15 @@ export default function Home() {
           while improving delivery speed for a global enterprise.
         </p>
 
-        <button className="px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold shadow-lg transition">
-          Explore Case Study
-        </button>
+<a
+  href="/case-studies/ai-supply-chain"
+  className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold shadow-lg transition"
+>
+  Explore Case Study
+</a>
       </div>
 
-      <div className="md:w-1/2">
+      <div className="rounded-xl shadow-md w-full object-cover transition duration-700 group-hover:scale-105">
         <img
           src="/assets/case-studies/AI-Driven Supply Chain.png"
           alt="AI Supply Chain"
@@ -275,167 +283,273 @@ export default function Home() {
   </ScrollReveal>
 
 
-  {/* Small Case Studies */}
-  <div className="grid md:grid-cols-2 gap-12 mt-16">
 
+{/* Small Case Studies */}
+<div className="grid md:grid-cols-2 gap-12 mt-16">
 
-    {/* Card 1 */}
-    <ScrollReveal delay={0.2}>
-<motion.div
-  whileHover={{
-    scale: 1.03,
-    y: -6,
-    rotateX: 2,
-  }}
-  transition={{ type: "spring", stiffness: 120 }}
-      className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-blue-700/70 via-indigo-700/50 to-purple-700/50 shadow-[0_40px_100px_rgba(0,0,0,0.7)] cursor-pointer"
-    >
+  {/* Card 1 */}
+  <ScrollReveal delay={0.2}>
+    <a href="/case-studies/customer-insights">
+      <motion.div
+        whileHover={{
+          scale: 1.03,
+          y: -6,
+          rotateX: 2,
+        }}
+        transition={{ type: "spring", stiffness: 120 }}
+        className="group relative rounded-2xl overflow-hidden bg-gradient-to-r from-blue-700/70 via-indigo-700/50 to-purple-700/50 shadow-[0_40px_100px_rgba(0,0,0,0.7)] cursor-pointer transition-all duration-500"
+      >
 
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-indigo-500/5 to-purple-500/5 blur-2xl"></div>
+        {/* glow layers */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-indigo-500/5 to-purple-500/5 blur-2xl"></div>
 
-      <div className="relative z-10 p-8 flex flex-col md:flex-row items-center gap-6">
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/20 blur-xl"></div>
 
-        <div className="md:w-1/2 text-white space-y-2">
-          <p className="uppercase text-xs text-blue-300 font-semibold tracking-widest">
-            Case Study
-          </p>
+        <div className="relative z-10 p-8 grid md:grid-cols-2 gap-6 items-center">
 
-          <h4 className="text-2xl md:text-3xl font-semibold leading-snug">
-            Intelligent Customer Insights Platform
-          </h4>
+          <div className="text-white space-y-2">
+            <p className="uppercase text-xs text-blue-300 font-semibold tracking-widest">
+              Case Study
+            </p>
 
-          <p className="text-sm md:text-base text-neutral-300 font-light">
-            Built a unified AI-driven platform that delivered real-time
-            customer insights and increased retention by 18%.
-          </p>
+            <h4 className="text-2xl md:text-3xl font-semibold leading-snug">
+              Intelligent Customer Insights Platform
+            </h4>
+
+            <p className="text-sm md:text-base text-neutral-300 font-light">
+              Built a unified AI-driven platform that delivered real-time
+              customer insights and increased retention by 18%.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-xl">
+            <img
+              src="/assets/case-studies/Customer-Insights.png"
+              alt="Customer Insights"
+              className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
         </div>
+      </motion.div>
+    </a>
+  </ScrollReveal>
 
-        <div className="md:w-1/2">
-          <img
-            src="/assets/case-studies/Customer-Insights.png"
-            alt="Customer Insights"
-            className="rounded-xl shadow-md w-full object-cover"
-          />
+
+  {/* Card 2 */}
+  <ScrollReveal delay={0.3}>
+    <a href="/case-studies/supply-chain-insights">
+      <motion.div
+        whileHover={{
+          scale: 1.03,
+          y: -6,
+          rotateX: 2,
+        }}
+        transition={{ type: "spring", stiffness: 120 }}
+        className="group relative rounded-2xl overflow-hidden bg-gradient-to-r from-blue-700/70 via-indigo-700/50 to-purple-700/50 shadow-[0_40px_100px_rgba(0,0,0,0.7)] cursor-pointer transition-all duration-500"
+      >
+
+        {/* glow layers */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-indigo-500/5 to-purple-500/5 blur-2xl"></div>
+
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/20 blur-xl"></div>
+
+        <div className="relative z-10 p-8 grid md:grid-cols-2 gap-6 items-center">
+
+          <div className="text-white space-y-2">
+            <p className="uppercase text-xs text-blue-300 font-semibold tracking-widest">
+              Case Study
+            </p>
+
+            <h4 className="text-2xl md:text-3xl font-semibold leading-snug">
+              AI-Powered Supply Chain Insights
+            </h4>
+
+            <p className="text-sm md:text-base text-neutral-300 font-light">
+              Implemented predictive analytics to optimize supply chain workflows,
+              reducing costs and improving delivery efficiency.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-xl">
+            <img
+              src="/assets/case-studies/Supply-Chain-Insights.png"
+              alt="Supply Chain Insights"
+              className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
         </div>
+      </motion.div>
+    </a>
+  </ScrollReveal>
 
-      </div>
-    </motion.div>
-    </ScrollReveal>
-
-
-    {/* Card 2 */}
-    <ScrollReveal delay={0.3}>
-<motion.div
-  whileHover={{
-    scale: 1.03,
-    y: -6,
-    rotateX: 2,
-  }}
-  transition={{ type: "spring", stiffness: 120 }}
-      className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-blue-700/70 via-indigo-700/50 to-purple-700/50 shadow-[0_40px_100px_rgba(0,0,0,0.7)] cursor-pointer"
-    >
-
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-indigo-500/5 to-purple-500/5 blur-2xl"></div>
-
-      <div className="relative z-10 p-8 flex flex-col md:flex-row items-center gap-6">
-
-        <div className="md:w-1/2 text-white space-y-2">
-          <p className="uppercase text-xs text-blue-300 font-semibold tracking-widest">
-            Case Study
-          </p>
-
-          <h4 className="text-2xl md:text-3xl font-semibold leading-snug">
-            AI-Powered Supply Chain Insights
-          </h4>
-
-          <p className="text-sm md:text-base text-neutral-300 font-light">
-            Implemented predictive analytics to optimize supply chain workflows,
-            reducing costs and improving delivery efficiency.
-          </p>
-        </div>
-
-        <div className="md:w-1/2">
-          <img
-            src="/assets/case-studies/Supply-Chain-Insights.png"
-            alt="Supply Chain Insights"
-            className="rounded-xl shadow-md w-full object-cover"
-          />
-        </div>
-
-      </div>
-    </motion.div>
-    </ScrollReveal>
-
-  </div>
+</div>
 
 </section>
 
 </SlideFadeSection>
 
 
-      {/* ================= THOUGHT LEADERSHIP TEASER ================= */}
+{/* ================= THOUGHT LEADERSHIP ================= */}
+
 <SlideFadeSection direction="left">
   <ScrollReveal>
-  <section className="relative max-w-7xl mx-auto px-6 py-32">
-    {/* Section Heading */}
-    <div className="text-center mb-16 relative z-10">
-      <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
-        Thought Leadership
-      </h2>
-      <p className="text-neutral-400 text-lg max-w-3xl mx-auto">
-        Explore our perspectives and insights on AI innovation across industries, shaping the future of enterprise intelligence.
+
+<section className="relative max-w-7xl mx-auto px-6 py-40 overflow-hidden">
+
+  {/* background glow */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute left-[20%] top-[-200px] w-[600px] h-[600px] bg-blue-600/10 blur-[160px]" />
+    <div className="absolute right-[10%] bottom-[-200px] w-[600px] h-[600px] bg-indigo-600/10 blur-[160px]" />
+  </div>
+
+  {/* header */}
+  <div className="text-center mb-20 relative z-10">
+
+    <p className="text-sm uppercase tracking-widest text-neutral-500 mb-4">
+      Thought Leadership
+    </p>
+
+    <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6">
+      Insights shaping the future of enterprise AI
+    </h2>
+
+    <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+      Explore perspectives on AI systems, data platforms, and intelligent
+      enterprises from the KSquare research and engineering teams.
+    </p>
+
+  </div>
+
+  {/* premium cards */}
+
+{/* premium cards */}
+
+<div className="space-y-10 relative z-10">
+
+{/* FEATURED INSIGHT */}
+
+<motion.div
+  whileHover={{ scale: 1.02, y: -6 }}
+  className="group relative rounded-3xl overflow-hidden border border-white/10 bg-neutral-900 shadow-[0_40px_120px_rgba(0,0,0,0.9)] cursor-pointer"
+>
+
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-purple-600/20 opacity-0 group-hover:opacity-100 transition duration-700 blur-2xl"></div>
+
+  <div className="relative z-10 grid md:grid-cols-2 items-center">
+
+    <div className="p-10 md:p-14 space-y-4">
+
+      <p className="text-xs uppercase tracking-widest text-blue-400 font-semibold">
+        Featured Insight
       </p>
+
+      <h3 className="text-3xl md:text-4xl font-semibold">
+        AI Systems for Enterprise Transformation
+      </h3>
+
+      <p className="text-neutral-400">
+        How organizations are deploying AI platforms that reshape operations
+        and decision systems across modern enterprises.
+      </p>
+
+      <span className="text-blue-400 font-medium">
+        Read Insight →
+      </span>
+
     </div>
 
-    {/* Cards */}
-    <div className="grid md:grid-cols-3 gap-12 relative z-10">
-      {[
-        {
-          title: "AI in Enterprise Transformation",
-          description: "How AI is reshaping operations, strategy, and decision-making at scale.",
-          image: "/assets/thought-leadership/ai-enterprise.png"
-        },
-        {
-          title: "Generative AI for Business",
-          description: "Practical applications of generative models for real-world impact.",
-          image: "/assets/thought-leadership/generative-ai.png"
-        },
-        {
-          title: "Ethical AI Practices",
-          description: "Balancing innovation with responsibility and governance in AI deployments.",
-          image: "/assets/thought-leadership/ethical-ai.png"
-        }
-      ].map((item, idx) => (
-        <motion.div
-          key={idx}
-          whileHover={{ scale: 1.03, y: -5 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: idx * 0.2 }}
-          className="bg-neutral-900 rounded-3xl overflow-hidden shadow-lg cursor-pointer group"
-        >
-          <div className="relative w-full h-48 md:h-56">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-full object-cover rounded-t-3xl transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          <div className="p-6 md:p-8">
-            <h3 className="text-2xl font-semibold text-white mb-2">{item.title}</h3>
-            <p className="text-neutral-400 text-base">{item.description}</p>
-          </div>
-        </motion.div>
-      ))}
+    <div className="overflow-hidden h-[320px] md:h-full">
+
+      <img
+        src="/assets/thought-leadership/ai-enterprise.png"
+        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+      />
+
     </div>
 
-    {/* Optional CTA */}
-    <div className="mt-12 text-center">
-      <button className="px-10 py-5 bg-blue-600 hover:bg-blue-500 transition rounded-xl font-semibold text-lg shadow-[0_20px_80px_rgba(59,130,246,0.5)]">
-        View All Insights
-      </button>
+  </div>
+
+</motion.div>
+
+
+{/* SMALL INSIGHTS */}
+
+<div className="grid md:grid-cols-2 gap-10">
+
+{[
+  {
+    title: "The Rise of Enterprise AI Agents",
+    description:
+      "Autonomous agents are redefining enterprise workflows and decision automation.",
+    image: "/assets/thought-leadership/generative-ai.png",
+  },
+  {
+    title: "Building Responsible AI Systems",
+    description:
+      "Balancing innovation with governance, transparency, and ethical AI deployment.",
+    image: "/assets/thought-leadership/ethical-ai.png",
+  }
+].map((item, idx) => (
+
+<motion.div
+  key={idx}
+  whileHover={{ scale: 1.03, y: -6 }}
+  className="group relative rounded-3xl overflow-hidden border border-white/10 bg-neutral-900 shadow-[0_30px_90px_rgba(0,0,0,0.8)] cursor-pointer"
+>
+
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-purple-600/20 opacity-0 group-hover:opacity-100 transition duration-700 blur-xl"></div>
+
+  <div className="relative z-10">
+
+    <div className="overflow-hidden h-48">
+
+      <img
+        src={item.image}
+        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+      />
+
     </div>
-  </section>
+
+    <div className="p-6 space-y-2">
+
+      <h4 className="text-xl font-semibold text-white">
+        {item.title}
+      </h4>
+
+      <p className="text-neutral-400 text-sm">
+        {item.description}
+      </p>
+
+      <div className="text-blue-400 text-sm mt-3">
+        Read Insight →
+      </div>
+
+    </div>
+
+  </div>
+
+</motion.div>
+
+))}
+
+</div>
+
+</div>
+
+  {/* CTA */}
+
+  <div className="text-center mt-20">
+
+<AIButton>
+  View All Insights
+</AIButton>
+
+  </div>
+
+</section>
+
   </ScrollReveal>
 </SlideFadeSection>
 
@@ -459,9 +573,9 @@ export default function Home() {
       enterprise AI systems that drive measurable transformation.
     </p>
 
-    <button className="relative px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 transition-all duration-700 rounded-xl font-semibold text-lg shadow-[0_20px_80px_rgba(59,130,246,0.5)]">
-      Start a Conversation
-    </button>
+<AIButton>
+  Start a Conversation
+</AIButton>
   </div>
 </section>
 
