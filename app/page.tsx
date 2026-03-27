@@ -4,11 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import NeuralNetwork from "@/components/NeuralNetwork";
 import ThoughtLeadershipSection from "@/components/ThoughtLeadershipSection";
-import AIParticlesSection from "@/components/AIParticlesSection";
-import AIParticles from "@/components/AIParticles";
-import CTAParticles from "@/components/CTAParticles";
 import TechEcosystem from "@/components/TechEcosystem";
-import AmbientAIGrid from "@/components/AmbientAIGrid";
 import AICapabilities from "@/components/AICapabilities";
 import ScrollReveal from "@/components/ScrollReveal";
 import BackgroundGlow from "@/components/BackgroundGlow";
@@ -209,7 +205,6 @@ export default function Home() {
       <CursorGlow />
       <GlobalAIAmbience />
       <BackgroundGlow />
-      <AmbientAIGrid />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-600/10 blur-[180px]" />

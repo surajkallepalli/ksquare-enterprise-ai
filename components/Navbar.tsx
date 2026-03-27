@@ -170,7 +170,7 @@ function PanelSimple({ items, active }: { items: any[]; active: any }) {
         {items.filter((i: any) => i.title !== active.title).map((item: any, i: number) => {
           const ItemIcon = item.icon || Sparkles;
           return (
-            <Link key={i} href={item.href} onClick={() => setOpenMenu(null)}
+            <Link key={i} href={item.href}
               style={{ display: "flex", alignItems: "center", gap: "0.6rem", padding: "0.5rem 0.5rem", borderRadius: "0.4rem", textDecoration: "none", color: "rgba(255,255,255,0.5)", transition: "all 0.15s ease" }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = "rgba(255,255,255,0.04)"; el.style.color = "#fff"; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = "transparent"; el.style.color = "rgba(255,255,255,0.5)"; }}
