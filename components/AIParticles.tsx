@@ -24,9 +24,9 @@ export default function AIParticles() {
       vy: (Math.random() - 0.5) * 0.4
     }))
 
-    function animate() {
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+   function animate() {
+  if (!ctx) return;
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach(p => {
 
