@@ -123,7 +123,7 @@ function CaseStudiesSection() {
       <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "3rem", gap: "1.5rem", flexWrap: "wrap" as const }}>
         <div>
           {/* Eyebrow — was #3a3a4a, now #7a7a8a */}
-          <p style={{ fontSize: "0.8rem", fontWeight: 500, fontWeight: 500, fontWeight: 500, fontWeight: 500, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#9a9aaa", marginBottom: "1rem" }}>Transformation impact</p>
+          <p style={{ fontSize: "0.8rem", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#9a9aaa", marginBottom: "1rem" }}>Transformation impact</p>
           <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 400, lineHeight: 1.1, color: "#e8e6f0" }}>
             Results that speak<br /><em style={{ color: "#7b6ff0" }}>for themselves</em>
           </h2>
