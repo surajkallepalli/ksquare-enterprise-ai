@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}", 
+    "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["'Outfit'", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
       colors: {
-        // Add any custom colors if needed
         "ks-blue": "#3B82F6",
         "ks-indigo": "#6366F1",
         "ks-neutral-dark": "#111827",

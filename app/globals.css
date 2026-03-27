@@ -315,7 +315,14 @@ section {
   animation: scroll 25s linear infinite;
 }
 
+* {
+  min-font-size: 12px; /* not supported everywhere but helps */
+}
 
+/* The real fix — set base font size slightly larger */
+html {
+  font-size: 17px; /* was implicitly 16px — bumping base makes all rem values larger */
+}
 
 
 

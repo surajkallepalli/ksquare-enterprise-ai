@@ -24,14 +24,14 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 function HeroCtaPrimary() {
   const [hov, setHov] = useState(false);
   return (
-    <a href="/contact" onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: hov ? "#d4d8ff" : "#ffffff", color: "#080810", fontSize: "0.82rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" as const, padding: "0.9rem 2rem", borderRadius: "9999px", textDecoration: "none", transform: hov ? "translateY(-1px)" : "translateY(0)", transition: "all 0.25s ease" }}>Start a conversation</a>
+    <a href="/contact" onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: hov ? "#d4d8ff" : "#ffffff", color: "#080810", fontSize: "0.92rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" as const, padding: "0.9rem 2rem", borderRadius: "9999px", textDecoration: "none", transform: hov ? "translateY(-1px)" : "translateY(0)", transition: "all 0.25s ease" }}>Start a conversation</a>
   );
 }
 
 function HeroCtaSecondary() {
   const [hov, setHov] = useState(false);
   return (
-    <a href="/case-studies" onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "transparent", color: hov ? "#fff" : "rgba(255,255,255,0.65)", fontSize: "0.82rem", fontWeight: 400, letterSpacing: "0.05em", textTransform: "uppercase" as const, padding: "0.9rem 2rem", borderRadius: "9999px", textDecoration: "none", border: hov ? "0.5px solid rgba(255,255,255,0.5)" : "0.5px solid rgba(255,255,255,0.2)", transform: hov ? "translateY(-1px)" : "translateY(0)", transition: "all 0.25s ease" }}>See our work &#8594;</a>
+    <a href="/case-studies" onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "transparent", color: hov ? "#fff" : "rgba(255,255,255,0.65)", fontSize: "0.92rem", fontWeight: 400, letterSpacing: "0.05em", textTransform: "uppercase" as const, padding: "0.9rem 2rem", borderRadius: "9999px", textDecoration: "none", border: hov ? "0.5px solid rgba(255,255,255,0.5)" : "0.5px solid rgba(255,255,255,0.2)", transform: hov ? "translateY(-1px)" : "translateY(0)", transition: "all 0.25s ease" }}>See our work &#8594;</a>
   );
 }
 
@@ -70,15 +70,17 @@ function InsightCard({ item }: { item: typeof insights[0] }) {
         <img src={item.image} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "saturate(0.75) brightness(0.85)" }} />
       </div>
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.55) 45%, transparent 75%)", pointerEvents: "none" }} />
+      {/* Front content */}
       <div style={{ position: "absolute", inset: 0, padding: "1.5rem", display: "flex", flexDirection: "column", justifyContent: "space-between", opacity: hovered ? 0 : 1, transition: "opacity 0.25s ease", pointerEvents: "none" }}>
-        <span style={{ fontSize: "0.58rem", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: item.color, background: `${item.color}18`, border: `0.5px solid ${item.color}40`, padding: "0.28rem 0.65rem", borderRadius: "9999px", width: "fit-content" }}>{item.type}</span>
-        <h3 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "1rem", fontWeight: 400, color: "#fff", lineHeight: 1.45, maxWidth: "88%" }}>{item.title}</h3>
+        <span style={{ fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: item.color, background: `${item.color}35`, border: `0.5px solid ${item.color}70`, padding: "0.3rem 0.7rem", borderRadius: "9999px", width: "fit-content" }}>{item.type}</span>
+        <h3 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "1rem", fontWeight: 400, color: "#f0eeff", lineHeight: 1.45, maxWidth: "88%" }}>{item.title}</h3>
       </div>
+      {/* Back content */}
       <div style={{ position: "absolute", inset: 0, padding: "1.5rem", display: "flex", flexDirection: "column", justifyContent: "flex-end", opacity: hovered ? 1 : 0, transform: hovered ? "translateY(0)" : "translateY(14px)", transition: "opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s", pointerEvents: "none" }}>
-        <span style={{ fontSize: "0.58rem", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: item.color, marginBottom: "0.6rem" }}>{item.type}</span>
-        <h3 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "0.95rem", fontWeight: 400, color: "#fff", lineHeight: 1.45, marginBottom: "0.65rem" }}>{item.title}</h3>
-        <p style={{ fontSize: "0.78rem", color: "#7a7a8a", lineHeight: 1.65, marginBottom: "1.1rem" }}>{item.description}</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", fontSize: "0.75rem", color: item.color, letterSpacing: "0.06em" }}>Read more &#8594;</div>
+        <span style={{ fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: item.color, marginBottom: "0.6rem" }}>{item.type}</span>
+        <h3 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "0.95rem", fontWeight: 400, color: "#f0eeff", lineHeight: 1.45, marginBottom: "0.65rem" }}>{item.title}</h3>
+        <p style={{ fontSize: "0.8rem", color: "#b0b0c0", lineHeight: 1.65, marginBottom: "1.1rem" }}>{item.description}</p>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", fontSize: "0.88rem", color: item.color, letterSpacing: "0.06em" }}>Read more &#8594;</div>
       </div>
     </a>
   );
@@ -88,21 +90,23 @@ function InsightCard({ item }: { item: typeof insights[0] }) {
 
 function InsightsSection() {
   return (
-    <section style={{ maxWidth: 1280, margin: "0 auto", padding: "7rem 1.5rem" }}>
+    <section style={{ maxWidth: 1280, margin: "0 auto", padding: "3rem 1.5rem 7rem" }}>
       <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "3rem", gap: "1.5rem", flexWrap: "wrap" as const }}>
         <div>
-          <p style={{ fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#3a3a4a", marginBottom: "1rem" }}>Thought leadership</p>
+          {/* Eyebrow — was #3a3a4a, now #7a7a8a */}
+          <p style={{ fontSize: "0.8rem", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#9a9aaa", marginBottom: "1rem" }}>Thought leadership</p>
           <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 400, lineHeight: 1.1, color: "#e8e6f0" }}>
             How enterprise AI is<br /><em style={{ color: "#4ca8ff" }}>actually evolving</em>
           </h2>
         </div>
-        <a href="/insights" style={{ fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase" as const, color: "#3a3a4a", borderBottom: "0.5px solid #1e1e2a", paddingBottom: "3px", textDecoration: "none", whiteSpace: "nowrap" as const }} onMouseEnter={e => { e.currentTarget.style.color = "#4ca8ff"; e.currentTarget.style.borderBottomColor = "#4ca8ff"; }} onMouseLeave={e => { e.currentTarget.style.color = "#3a3a4a"; e.currentTarget.style.borderBottomColor = "#1e1e2a"; }}>All insights &#8594;</a>
+        {/* "All insights" link — was #3a3a4a, now #8a8a9a with visible border */}
+        <a href="/insights" style={{ fontSize: "0.95rem", letterSpacing: "0.14em", textTransform: "uppercase" as const, color: "#9a9aaa", borderBottom: "0.5px solid #5a5a6a", paddingBottom: "3px", textDecoration: "none", whiteSpace: "nowrap" as const }} onMouseEnter={e => { e.currentTarget.style.color = "#4ca8ff"; e.currentTarget.style.borderBottomColor = "#4ca8ff"; }} onMouseLeave={e => { e.currentTarget.style.color = "#8a8a9a"; e.currentTarget.style.borderBottomColor = "#5a5a6a"; }}>All insights &#8594;</a>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridTemplateRows: "380px 380px", gap: "12px" }}>
         {insights.map((item, i) => <InsightCard key={i} item={item} />)}
       </div>
       <div style={{ marginTop: "2.5rem" }}>
-        <AIButton>View all insights</AIButton>
+        <a href="/insights" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontSize: "0.92rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#4ca8ff", border: "0.5px solid rgba(76,168,255,0.35)", padding: "0.85rem 2rem", borderRadius: "9999px", textDecoration: "none", transition: "all 0.25s ease" }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(76,168,255,0.08)"; }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}>View all insights &#8594;</a>
       </div>
     </section>
   );
@@ -115,49 +119,62 @@ function CaseStudiesSection() {
   const featured = caseStudies[0];
   const rest = caseStudies.slice(1);
   return (
-    <section style={{ maxWidth: 1280, margin: "0 auto", padding: "7rem 1.5rem" }}>
+    <section style={{ maxWidth: 1280, margin: "0 auto", padding: "3rem 1.5rem 7rem" }}>
       <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "3rem", gap: "1.5rem", flexWrap: "wrap" as const }}>
         <div>
-          <p style={{ fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#3a3a4a", marginBottom: "1rem" }}>Transformation impact</p>
+          {/* Eyebrow — was #3a3a4a, now #7a7a8a */}
+          <p style={{ fontSize: "0.8rem", fontWeight: 500, fontWeight: 500, fontWeight: 500, fontWeight: 500, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#9a9aaa", marginBottom: "1rem" }}>Transformation impact</p>
           <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 400, lineHeight: 1.1, color: "#e8e6f0" }}>
             Results that speak<br /><em style={{ color: "#7b6ff0" }}>for themselves</em>
           </h2>
         </div>
-        <a href="/case-studies" style={{ fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase" as const, color: "#3a3a4a", borderBottom: "0.5px solid #1e1e2a", paddingBottom: "3px", textDecoration: "none", whiteSpace: "nowrap" as const }} onMouseEnter={e => { e.currentTarget.style.color = "#a09be8"; e.currentTarget.style.borderBottomColor = "#7b6ff0"; }} onMouseLeave={e => { e.currentTarget.style.color = "#3a3a4a"; e.currentTarget.style.borderBottomColor = "#1e1e2a"; }}>All case studies &#8594;</a>
+        {/* "All case studies" link — was #3a3a4a, now #8a8a9a */}
+        <a href="/case-studies" style={{ fontSize: "0.95rem", letterSpacing: "0.14em", textTransform: "uppercase" as const, color: "#9a9aaa", borderBottom: "0.5px solid #5a5a6a", paddingBottom: "3px", textDecoration: "none", whiteSpace: "nowrap" as const }} onMouseEnter={e => { e.currentTarget.style.color = "#a09be8"; e.currentTarget.style.borderBottomColor = "#7b6ff0"; }} onMouseLeave={e => { e.currentTarget.style.color = "#8a8a9a"; e.currentTarget.style.borderBottomColor = "#5a5a6a"; }}>All case studies &#8594;</a>
       </div>
-      <motion.a href={featured.href} whileHover={{ scale: 1.005 }} transition={{ duration: 0.4 }} style={{ display: "block", position: "relative", borderRadius: "1.25rem", overflow: "hidden", marginBottom: "0.75rem", textDecoration: "none", cursor: "pointer", border: "0.5px solid #16161f" }}>
+
+      {/* Featured card */}
+      <motion.a href={featured.href} whileHover={{ scale: 1.005 }} transition={{ duration: 0.4 }} style={{ display: "block", position: "relative", borderRadius: "1.25rem", overflow: "hidden", marginBottom: "0.75rem", textDecoration: "none", cursor: "pointer", border: "0.5px solid #2a2a3a" }}>
         <img src={featured.image} alt={featured.title} style={{ width: "100%", height: 420, objectFit: "cover", display: "block", filter: "saturate(0.6) brightness(0.55)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(6,6,8,0.97) 0%, rgba(6,6,8,0.35) 55%, transparent 100%)" }} />
         <div style={{ position: "absolute", inset: 0, padding: "2.5rem", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            <span style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)", background: "rgba(255,255,255,0.07)", border: "0.5px solid rgba(255,255,255,0.1)", padding: "0.35rem 0.75rem", borderRadius: "9999px" }}>{featured.industry}</span>
-            <span style={{ fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: featured.color, background: `${featured.color}18`, border: `0.5px solid ${featured.color}40`, padding: "0.35rem 0.75rem", borderRadius: "9999px" }}>{featured.tag}</span>
+            {/* Industry badge — brighter text */}
+            <span style={{ fontSize: "0.75rem", fontWeight: 500, fontWeight: 500, fontWeight: 500, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.7)", background: "rgba(255,255,255,0.1)", border: "0.5px solid rgba(255,255,255,0.2)", padding: "0.35rem 0.75rem", borderRadius: "9999px" }}>{featured.industry}</span>
+            <span style={{ fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: featured.color, background: `${featured.color}25`, border: `0.5px solid ${featured.color}60`, padding: "0.35rem 0.75rem", borderRadius: "9999px" }}>{featured.tag}</span>
           </div>
           <div>
             <h3 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(1.4rem, 2.5vw, 2.2rem)", fontWeight: 400, color: "#fff", lineHeight: 1.3, marginBottom: "1.25rem", maxWidth: "55%" }}>{featured.title}</h3>
             <div style={{ display: "flex", alignItems: "baseline", gap: "0.6rem", marginBottom: "0.5rem" }}>
               <span style={{ fontSize: "2.8rem", fontWeight: 500, color: featured.color, lineHeight: 1 }}>{featured.stat}</span>
-              <span style={{ fontSize: "0.9rem", color: "#5a5a6a" }}>{featured.statLabel}</span>
+              {/* Stat label — was #5a5a6a, now #9a9aaa */}
+              <span style={{ fontSize: "0.9rem", color: "#9a9aaa" }}>{featured.statLabel}</span>
             </div>
-            <p style={{ fontSize: "0.7rem", color: "#3a3a4a", letterSpacing: "0.05em" }}>{featured.meta}</p>
+            {/* Meta — was #3a3a4a, now #7a7a8a */}
+            <p style={{ fontSize: "0.92rem", color: "#9a9aaa", letterSpacing: "0.05em" }}>{featured.meta}</p>
           </div>
         </div>
       </motion.a>
+
+      {/* 5-card grid */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0.75rem" }}>
         {rest.map((cs, i) => (
-          <motion.a key={i} href={cs.href} whileHover={{ y: -4 }} transition={{ duration: 0.3 }} style={{ display: "block", position: "relative", borderRadius: "1rem", overflow: "hidden", textDecoration: "none", cursor: "pointer", border: `0.5px solid ${hovered === i ? "#2a2a3a" : "#16161f"}`, background: "#0d0d12", transition: "border-color 0.3s" }} onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}>
+          <motion.a key={i} href={cs.href} whileHover={{ y: -4 }} transition={{ duration: 0.3 }} style={{ display: "block", position: "relative", borderRadius: "1rem", overflow: "hidden", textDecoration: "none", cursor: "pointer", border: `0.5px solid ${hovered === i ? "#3a3a4a" : "#2a2a3a"}`, background: "#0d0d12", transition: "border-color 0.3s" }} onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}>
             <img src={cs.image} alt={cs.title} style={{ width: "100%", height: 180, objectFit: "cover", display: "block", filter: `saturate(0.65) brightness(${hovered === i ? 0.9 : 0.7})`, transition: "filter 0.4s, transform 0.6s ease", transform: hovered === i ? "scale(1.06)" : "scale(1)" }} />
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 180, background: "linear-gradient(to top, rgba(6,6,8,0.98) 0%, rgba(6,6,8,0.2) 60%, transparent 100%)" }} />
+            {/* Industry badge on image */}
             <div style={{ position: "absolute", top: "0.75rem", left: "0.75rem" }}>
-              <span style={{ fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: cs.color, background: `${cs.color}15`, border: `0.5px solid ${cs.color}35`, padding: "0.2rem 0.5rem", borderRadius: "9999px" }}>{cs.industry}</span>
+              <span style={{ fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: cs.color, background: `${cs.color}22`, border: `0.5px solid ${cs.color}55`, padding: "0.22rem 0.55rem", borderRadius: "9999px" }}>{cs.industry}</span>
             </div>
             <div style={{ padding: "0.85rem" }}>
-              <p style={{ fontFamily: "'Instrument Serif', serif", fontSize: "0.9rem", fontWeight: 400, color: hovered === i ? "#fff" : "#ccc8e0", lineHeight: 1.4, marginBottom: "0.75rem", transition: "color 0.2s", minHeight: "3.5rem" }}>{cs.title}</p>
-              <div style={{ display: "flex", alignItems: "baseline", gap: "0.4rem", marginBottom: "0.4rem" }}>
+              {/* Card title — was #ccc8e0, now brighter #e8e6f0 */}
+              <p style={{ fontFamily: "'Instrument Serif', serif", fontSize: "0.9rem", fontWeight: 400, color: hovered === i ? "#fff" : "#e8e6f0", lineHeight: 1.4, marginBottom: "0.75rem", transition: "color 0.2s", minHeight: "3.5rem" }}>{cs.title}</p>
+              <div style={{ display: "flex", alignItems: "baseline", gap: "0.4rem", marginBottom: "0.35rem" }}>
                 <span style={{ fontSize: "1.4rem", fontWeight: 500, color: cs.color, lineHeight: 1 }}>{cs.stat}</span>
-                <span style={{ fontSize: "0.65rem", color: "#3a3a4a", lineHeight: 1.4 }}>{cs.statLabel}</span>
+                {/* Stat label — was #3a3a4a, now #8a8a9a */}
+                <span style={{ fontSize: "0.8rem", color: "#9a9aaa", lineHeight: 1.4 }}>{cs.statLabel}</span>
               </div>
-              <p style={{ fontSize: "0.6rem", color: "#28283a", letterSpacing: "0.05em" }}>{cs.meta}</p>
+              {/* Meta — was #28283a, now #6a6a7a */}
+              <p style={{ fontSize: "0.75rem", color: "#6a6a7a", letterSpacing: "0.05em" }}>{cs.meta}</p>
             </div>
           </motion.a>
         ))}
@@ -202,73 +219,86 @@ export default function Home() {
 
       {/* ================= HERO ================= */}
       <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden px-6">
-
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0">
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
-
         <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(135deg, rgba(0,0,0,0.82) 0%, rgba(4,6,20,0.75) 50%, rgba(0,0,0,0.80) 100%)" }} />
         <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)" }} />
-
         <div className="absolute inset-0 z-20 pointer-events-none" style={{ opacity: 0.35 }}>
           <NeuralNetwork />
         </div>
+{/* Hero Content */}
+<div className="relative z-30 w-full max-w-6xl mx-auto" style={{ paddingTop: "6rem" }}>
+  <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}>
 
-        <div className="relative z-30 w-full max-w-6xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}>
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.8 }} style={{ marginBottom: "2rem" }}>
+      <span style={{ fontSize: "0.8rem", letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.7)", border: "0.5px solid rgba(255,255,255,0.35)", padding: "0.45rem 1.1rem", borderRadius: "9999px", display: "inline-block" }}>Enterprise AI Transformation</span>
+    </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.8 }} style={{ marginBottom: "2rem" }}>
-              <span style={{ fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)", border: "0.5px solid rgba(255,255,255,0.15)", padding: "0.45rem 1.1rem", borderRadius: "9999px", display: "inline-block" }}>Enterprise AI Transformation</span>
-            </motion.div>
+    <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }} style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(3rem, 7vw, 6.5rem)", fontWeight: 400, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#ffffff", marginBottom: "1.75rem", maxWidth: "16ch" }}>
+      Intelligence across your entire{" "}<em style={{ fontStyle: "italic", color: "#7b8fff" }}>value chain.</em>
+    </motion.h1>
 
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }} style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(3rem, 7vw, 6.5rem)", fontWeight: 400, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#ffffff", marginBottom: "1.75rem", maxWidth: "16ch" }}>
-              Intelligence across your entire{" "}<em style={{ fontStyle: "italic", color: "#7b8fff" }}>value chain.</em>
-            </motion.h1>
+    <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.9 }} style={{ fontSize: "clamp(1rem, 1.5vw, 1.2rem)", fontWeight: 300, lineHeight: 1.75, color: "rgba(255,255,255,0.58)", maxWidth: "52ch", marginBottom: "1.5rem", letterSpacing: "0.01em" }}>
+      We turn fragmented data and disconnected systems into a unified AI backbone — so your enterprise moves faster, smarter, and with less friction.
+    </motion.p>
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.65, duration: 0.8 }}
+  style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "2.75rem", flexWrap: "wrap" as const }}
+>
+  {[
+    { value: "200+", label: "Enterprise clients" },
+    { value: "5", label: "Countries" },
+    { value: "10+", label: "Years of delivery" },
+  ].map((stat, i) => (
+    <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      {i > 0 && <div style={{ width: 1, height: 16, background: "rgba(255,255,255,0.25)", marginRight: "0.5rem" }} />}
+      <span style={{ fontSize: "0.95rem", fontWeight: 600, color: "#ffffff" }}>{stat.value}</span>
+      <span style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", fontWeight: 300 }}>{stat.label}</span>
+    </div>
+  ))}
+</motion.div>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.9 }} style={{ fontSize: "clamp(1rem, 1.5vw, 1.2rem)", fontWeight: 300, lineHeight: 1.75, color: "rgba(255,255,255,0.58)", maxWidth: "52ch", marginBottom: "2.75rem", letterSpacing: "0.01em" }}>
-              We turn fragmented data and disconnected systems into a unified AI backbone — so your enterprise moves faster, smarter, and with less friction.
-            </motion.p>
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75, duration: 0.8 }} style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" as const }}>
+      <HeroCtaPrimary />
+      <HeroCtaSecondary />
+    </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75, duration: 0.8 }} style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" as const }}>
-              <HeroCtaPrimary />
-              <HeroCtaSecondary />
-            </motion.div>
-
-          </motion.div>
-        </div>
-
+  </motion.div>
+</div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 1 }} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30">
           <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }} style={{ display: "flex", flexDirection: "column" as const, alignItems: "center", gap: "4px" }}>
             <div style={{ width: 1, height: 48, background: "linear-gradient(to bottom, rgba(255,255,255,0.5), transparent)" }} />
             <div style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(255,255,255,0.25)" }} />
           </motion.div>
         </motion.div>
-
       </section>
 
       {/* ================= TESTIMONIALS ================= */}
       <TestimonialCarousel />
 
       {/* ================= TECHNOLOGY ECOSYSTEM ================= */}
-      <SlideFadeSection direction="right">
-        <ScrollReveal><TechEcosystem /></ScrollReveal>
-      </SlideFadeSection>
+
+       <TechEcosystem />
+
 
       {/* ================= AI CAPABILITIES ================= */}
-      <ScrollReveal><AICapabilities /></ScrollReveal>
+      <AICapabilities />
 
       {/* ================= CASE STUDIES ================= */}
-      <SlideFadeSection direction="left">
-        <ScrollReveal><CaseStudiesSection /></ScrollReveal>
-      </SlideFadeSection>
+
+       <CaseStudiesSection />
+
 
       {/* ================= INSIGHTS ================= */}
-      <SlideFadeSection direction="right">
-        <ScrollReveal><InsightsSection /></ScrollReveal>
-      </SlideFadeSection>
+
+       <InsightsSection />
+
 
       {/* ================= STRATEGIC CTA ================= */}
-      <section className="relative py-40 px-6 text-center overflow-hidden">
+      {/* <section className="relative py-40 px-6 text-center overflow-hidden">
         <div className="absolute inset-0">
           <CTAParticles />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-purple-600/10 blur-3xl animate-slow-fade" />
@@ -278,7 +308,7 @@ export default function Home() {
           <p className="text-lg text-neutral-300 max-w-2xl mx-auto">We partner with forward-thinking organizations to design, deploy, and scale enterprise AI systems that drive measurable transformation.</p>
           <AIButton>Start a Conversation</AIButton>
         </div>
-      </section>
+      </section> */}
 
     </main>
   );
