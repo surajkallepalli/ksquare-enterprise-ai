@@ -139,7 +139,7 @@ function CaseStudiesSection() {
         <div style={{ position: "absolute", inset: 0, padding: "2.5rem", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
             {/* Industry badge — brighter text */}
-            <span style={{ fontSize: "0.75rem", fontWeight: 500, fontWeight: 500, fontWeight: 500, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.7)", background: "rgba(255,255,255,0.1)", border: "0.5px solid rgba(255,255,255,0.2)", padding: "0.35rem 0.75rem", borderRadius: "9999px" }}>{featured.industry}</span>
+            <span style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.7)", background: "rgba(255,255,255,0.1)", border: "0.5px solid rgba(255,255,255,0.2)", padding: "0.35rem 0.75rem", borderRadius: "9999px" }}>{featured.industry}</span>
             <span style={{ fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: featured.color, background: `${featured.color}25`, border: `0.5px solid ${featured.color}60`, padding: "0.35rem 0.75rem", borderRadius: "9999px" }}>{featured.tag}</span>
           </div>
           <div>
